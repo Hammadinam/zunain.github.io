@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zaneen Perfume</title>
+    <link href="https://fonts.googleapis.com/css2?family=Amiri&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <style>
+        /* General Styling */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+        body {
+            overflow-x: hidden;
+            background-color: #1c1c1c; /* Dark charcoal */
+            background-image: linear-gradient(135deg, #1c1c1c 0%, #2c2c2c 100%);
+            color: #fff; /* White or light text to contrast the dark background */
+            font-family: Arial, sans-serif;
+        }
+
+        /* Navigation Bar */
+        header {
+            position: absolute;
+            top: 0;
+            width: 100%;
+            min-height: 10%;
+            z-index: 1000;
+            background-color: transparent;
+            padding: 20px 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-family: roboto;
+        }
+
+        header nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        header nav ul li {
+            margin-left: 20px;
+        }
+
+        header nav ul li a {
+            text-decoration: none;
+            color: white;
+            font-size: 18px;
+            padding: 5px 10px;
+        }
+
+        header nav ul li a:hover {
+            color: #00c2c7;
+        }
+
+        header .logo img {
+            width: 70px;
+        }
+
+        /* Perfume Showcase Section */
+        .perfume-showcase {
+            padding: 50px;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr); /* Four items per row */
+            gap: 20px;
+        }
+
+        .perfume {
+            background-image: url(assets/pbg.webp);
+            padding: 20px;
+            text-align: center;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+            transition: transform 0.3s ease;
+        }
+
+        .perfume:hover img {
+            transform: scale(1.5); /* Zoom-in effect on hover */
+            transition: transform 1s ease;
+        }
+
+        .perfume img {
+            width: 100%;
+            max-width: 200px; /* Limit image size */
+            height: auto;
+            min-height: 250px;
+            max-height: 400px;
+            margin-bottom: 20px;
+        }
+
+        .perfume h2 {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+        }
+
+        .perfume p {
+            color: #555;
+        }
+
+        .shop-now-btn {
+            display: inline-block;
+            background-color: #00c2c7;
+            color: white;
+            padding: 10px 20px;
+            font-size: 1rem;
+            text-transform: uppercase;
+            border-radius: 5px;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+        }
+
+        .shop-now-btn:hover {
+            background-color: #009fa0;
+        }
+
+        /* Banner Section */
+        .banner {
+            position: relative;
+            height: 100vh;
+            background: url('assets/banner.jpg') no-repeat center center/cover;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            text-align: center;
+        }
+
+        .banner-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+
+        .banner-content {
+            z-index: 1;
+            max-width: 700px;
+        }
+
+        .banner-content h1 {
+            font-size: 2.0rem;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 5px;
+            color: #f9f9f9;
+        }
+
+        .banner-content h1 span img {
+            color: #779d9e;
+            width: 20rem;
+            text-shadow: 0 0 5px #757575;
+        }
+
+        .banner-content p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            line-height: 1.5;
+            color: #f9f9f9;
+        }
+
+        footer {
+            padding: 20px;
+            background-color: #6b6a6ab9;
+            color: #fff;
+            text-align: center;
+        }
+
+        footer p {
+            margin: 0;
+            font-size: 14px;
+        }
+        .down-arrow {
+  position: absolute;
+  top: calc(100vh - 60px);
+  left: calc(50% - 14px);
+  width: 0;
+  height: 30px;
+  border: 2px solid;
+  border-radius: 2px;
+}
+
+.down-arrow:after {
+  content: " ";
+  position: absolute;
+  top: 12px;
+  left: -10px;
+  width: 16px;
+  height: 16px;
+  border-bottom: 4px solid;
+  border-right: 4px solid;
+  border-radius: 4px;
+  transform: rotateZ(45deg);
+}
+@keyframes jumpInfinite {
+  0% {
+    margin-top: 0;
+  }
+  50% {
+    margin-top: 20px;
+  }
+  100% {
+    margin-top: 0;
+  }
+}
+.down-arrow {
+ 
+  animation: jumpInfinite 1.5s infinite;
+}
+
+        /* Responsive Styling */
+        @media (max-width: 1200px) {
+            .perfume-showcase {
+                grid-template-columns: repeat(3, 1fr); /* Three items per row */
+            }
+        }
+
+        @media (max-width: 900px) {
+            .perfume-showcase {
+                grid-template-columns: repeat(2, 1fr); /* Two items per row */
+            }
+
+            .banner-content h1 {
+                font-size: 1.8rem;
+            }
+        }
+
+        @media (max-width: 600px) {
+            header {
+                padding: 10px 20px;
+            }
+
+            header nav ul {
+                flex-direction: column;
+                align-items: flex-start;
+                display: none;
+            }
+
+            .perfume-showcase {
+                grid-template-columns: 1fr; /* One item per row */
+            }
+
+            .perfume {
+                padding: 10px;
+            }
+
+            .banner-content h1 {
+                font-size: 1.5rem;
+            }
+            
+
+            .banner-content p {
+                font-size: 1rem;
+            }
+            .banner-content h1 span img {
+        
+                width: 15rem;
+            }
+
+            .shop-now-btn {
+                padding: 8px 15px;
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<!-- Header Section -->
+<header>
+    <div class="logo">
+        <img src="assets/logo.png" alt="Logo">
+    </div>
+    <nav>
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#shop">Shop</a></li>
+            <li><a href="#story">Our Story</a></li>
+            <li><a href="#about">About Us</a></li>
+            <li><a href="#contact">Contact Us</a></li>
+        </ul>
+    </nav>
+</header>
+
+<!-- Banner Section -->
+<section class="banner">
+    <div class="banner-overlay"></div>
+    <div class="banner-content">
+        <h1><span><img src="assets/logo.png" alt=""></span> <br> Perfume</h1>
+        <p>Exclusive fragrances designed to captivate the senses and leave a lasting impression.<hr>Coming Soon.</p>
+        <a href="https://api.whatsapp.com/send?phone=923489815808" class="shop-now-btn">Shop Now</a>
+        <br>
+   
+       <div class="down-arrow">
+       </div>            
+    </div>
+</section>
+
+<h1 style="text-align: center; font-weight: bold;">--Up Coming--</h1>
+
+<!-- Perfume Showcase Section -->
+<section class="perfume-showcase">
+
+    <div class="perfume">
+        <img class="perfumeimg" src="assets/1.png" alt="Oud Shimmer Silver">
+        <hr>
+        <h2>Oud Shimmer Silver</h2>
+        <p>Rs. 4,790.00 PKR</p>
+        <a href="#shop" class="shop-now-btn">Shop Now</a>
+    </div>
+    <div class="perfume">
+        <img class="perfumeimg" src="assets/2.png" alt="Designer">
+        <hr>
+        <h2>Designer</h2>
+        <p>Rs. 3,990.00 PKR</p>
+        <a href="#shop" class="shop-now-btn">Shop Now</a>
+    </div>
+    <div class="perfume">
+        <img class="perfumeimg" src="assets/3.png" alt="Fatal">
+        <hr>
+        <h2>Fatal</h2>
+        <p>Rs. 4,290.00 PKR</p>
+        <a href="#shop" class="shop-now-btn">Shop Now</a>
+    </div>
+
+</section>
+
+<footer>
+    <p>&copy; 2024 زنین Perfume. All Rights Reserved.</p>
+</footer>
+
+</body>
+</html>
