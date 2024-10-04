@@ -175,98 +175,133 @@
             margin: 0;
             font-size: 14px;
         }
-        .down-arrow {
-  position: absolute;
-  top: calc(100vh - 60px);
-  left: calc(50% - 14px);
-  width: 0;
-  height: 30px;
-  border: 2px solid;
-  border-radius: 2px;
-}
 
-.down-arrow:after {
-  content: " ";
-  position: absolute;
-  top: 12px;
-  left: -10px;
-  width: 16px;
-  height: 16px;
-  border-bottom: 4px solid;
-  border-right: 4px solid;
-  border-radius: 4px;
-  transform: rotateZ(45deg);
-}
-@keyframes jumpInfinite {
-  0% {
-    margin-top: 0;
-  }
-  50% {
-    margin-top: 20px;
-  }
-  100% {
-    margin-top: 0;
-  }
-}
-.down-arrow {
- 
-  animation: jumpInfinite 1.5s infinite;
-}
+        .down-arrow {
+            position: absolute;
+            top: calc(100vh - 60px);
+            left: calc(50% - 14px);
+            width: 0;
+            height: 30px;
+            border: 2px solid;
+            border-radius: 2px;
+        }
+
+        .down-arrow:after {
+            content: " ";
+            position: absolute;
+            top: 12px;
+            left: -10px;
+            width: 16px;
+            height: 16px;
+            border-bottom: 4px solid;
+            border-right: 4px solid;
+            border-radius: 4px;
+            transform: rotateZ(45deg);
+        }
+
+        @keyframes jumpInfinite {
+            0% {
+                margin-top: 0;
+            }
+            50% {
+                margin-top: 20px;
+            }
+            100% {
+                margin-top: 0;
+            }
+        }
+        .down-arrow {
+            animation: jumpInfinite 1.5s infinite;
+        }
 
         /* Responsive Styling */
         @media (max-width: 1200px) {
             .perfume-showcase {
-                grid-template-columns: repeat(3, 1fr); /* Three items per row */
+                grid-template-columns: repeat(4, 1fr); /* Three items per row */
             }
         }
 
         @media (max-width: 900px) {
             .perfume-showcase {
-                grid-template-columns: repeat(2, 1fr); /* Two items per row */
+                grid-template-columns: repeat(3, 1fr); /* Two items per row */
             }
 
             .banner-content h1 {
                 font-size: 1.8rem;
             }
         }
+        @media (max-width: 900px) {
+    .perfume-showcase {
+        grid-template-columns: repeat(2, 1fr); /* Two items per row on smaller screens */
+        gap: 10px; /* Smaller gap for mobile */
+    }
 
-        @media (max-width: 600px) {
-            header {
-                padding: 10px 20px;
-            }
+    .perfume {
+        padding: 10px; /* Smaller padding */
+        border-radius: 8px;
+    }
 
-            header nav ul {
-                flex-direction: column;
-                align-items: flex-start;
-                display: none;
-            }
+    .perfume img {
+        max-width: 150px; /* Reduce image size */
+        max-height: 250px; /* Limit image height */
+    }
 
-            .perfume-showcase {
-                grid-template-columns: 1fr; /* One item per row */
-            }
+    .perfume h2 {
+        font-size: 1rem; /* Smaller font for titles */
+    }
 
-            .perfume {
-                padding: 10px;
-            }
+    .perfume p {
+        font-size: 0.9rem; /* Smaller font for price */
+    }
 
-            .banner-content h1 {
-                font-size: 1.5rem;
-            }
-            
+    .shop-now-btn {
+        padding: 8px 15px;
+        font-size: 0.9rem;
+    }
+}
 
-            .banner-content p {
-                font-size: 1rem;
-            }
-            .banner-content h1 span img {
-        
-                width: 15rem;
-            }
-
-            .shop-now-btn {
-                padding: 8px 15px;
-                font-size: 0.9rem;
-            }
+@media (max-width: 600px) {
+    
+ 
+    
+    .header{
+        display: none;
+    }
+    header nav ul {
+            display: none;
+            list-style: none;
         }
+    .perfume-showcase {
+        padding-left: 10px;
+        padding-right: 10px;
+        grid-template-columns: repeat(2, 2fr); /* One item per row for very small screens */
+        
+      
+   
+    }
+
+    .perfume img {
+        width: 100%;
+        height: auto;
+            min-height: 200px;
+            max-height: 250px;
+            aspect-ratio: auto 900 / 1350;
+            object-fit: cover;
+
+    }
+
+    .perfume h2 {
+        font-size: 0.9rem; /* Smaller font size */
+    }
+
+    .shop-now-btn {
+        padding: 5px 10px;
+        font-size: 0.8rem;
+    }
+    .footer{
+       padding: 10px;
+    }
+}
     </style>
 </head>
 <body>
@@ -292,10 +327,10 @@
     <div class="banner-overlay"></div>
     <div class="banner-content">
         <h1><span><img src="assets/logo.png" alt=""></span> <br> Perfume</h1>
-        <p>Exclusive fragrances designed to captivate the senses and leave a lasting impression.<br>Coming Soon.</p>
+        <p>Exclusive fragrances designed to captivate the senses and leave a lasting impression.<br><h3>Coming Soon.</h3></p>
         <a href="https://api.whatsapp.com/send?phone=923489815808" class="shop-now-btn">Shop Now</a>
         <br>
-   
+       
        <div class="down-arrow">
        </div>            
     </div>
