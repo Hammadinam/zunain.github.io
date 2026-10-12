@@ -1,4 +1,4 @@
-# Zanain Perfume
+# Zunain Perfume
 
 Product storefront with sale pricing, product popups, and WhatsApp ordering.
 
